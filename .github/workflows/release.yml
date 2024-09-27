@@ -15,8 +15,10 @@ jobs:
         with:
           go-version: '1.23.1'
       - name: Build
-        run: ./build.sh
+        run: |
+          chmod +x build.sh
+          ./build.sh
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: 'dist/*.zip dist/*.tar.gz'
+          artifacts: 'dist/*.zip, dist/*.tar.gz'
